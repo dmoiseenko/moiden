@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  logspout:
+    image: gliderlabs/logspout
+    volumes:
+      - '/var/run/docker.sock:/tmp/docker.sock'
+    ports:
+      - "5000:80"
+
+  gitlab:
+    image: 'gitlab/gitlab-ce:latest'
+    environment:
+        GITLAB_OMNIBUS_CONFIG: |
+          external_url 'https://moiden.com'
+    volumes:
+      - '/srv/gitlab/config:/etc/gitlab:Z'
+      - '/srv/gitlab/logs:/var/log/gitlab:Z'
+      - '/srv/gitlab/data:/var/opt/gitlab:Z'
+
+  nginx:
+    build:
+      context: ./nginx/
+    links:
+      - gitlab
+    volumes:
+      - '/var/www/html:/var/www/html'
+      - '/etc/letsencrypt/:/etc/letsencrypt/'
+    ports:
+      - '80:80'
+      - '443:443'
