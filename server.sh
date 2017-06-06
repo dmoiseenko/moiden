@@ -4,6 +4,7 @@ DOCKER_COMPOSE="docker-compose --project-name moiden -f docker-compose.yml"
 
 case $1 in
 "up")
+  ${DOCKER_COMPOSE} pull
 	${DOCKER_COMPOSE} build
   ${DOCKER_COMPOSE} up -d
 	;;
