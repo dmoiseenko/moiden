@@ -4,7 +4,6 @@ DOCKER_COMPOSE="docker-compose --project-name moiden -f docker-compose.yml"
 
 case $1 in
 "up")
-  ${DOCKER_COMPOSE} pull
 	${DOCKER_COMPOSE} build
   ${DOCKER_COMPOSE} up -d
 	;;
@@ -14,6 +13,9 @@ case $1 in
 "restart")
 	${DOCKER_COMPOSE} restart
 	;;
+"update")
+  ${DOCKER_COMPOSE} pull
+  ;;
 *)
   echo "first argument must be one of 'up' or 'down'"
 	exit 1;;
