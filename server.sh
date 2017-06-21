@@ -15,6 +15,7 @@ case $1 in
 	;;
 "update")
   ${DOCKER_COMPOSE} pull
+  ${DOCKER_COMPOSE} up -d
   ;;
 *)
   echo "first argument must be one of 'up' or 'down' or 'restart' or 'update'"
