@@ -17,6 +17,6 @@ case $1 in
   ${DOCKER_COMPOSE} pull
   ;;
 *)
-  echo "first argument must be one of 'up' or 'down'"
+  echo "first argument must be one of 'up' or 'down' or 'restart' or 'update'"
 	exit 1;;
 esac
