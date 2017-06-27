@@ -25,6 +25,7 @@ services:
       - gitlab
     volumes:
       - '/var/www/html:/var/www/html'
+      - './wbdv:/var/www/wbdv'
       - '/etc/letsencrypt/:/etc/letsencrypt/'
     ports:
       - '80:80'
