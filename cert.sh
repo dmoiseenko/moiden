@@ -2,7 +2,7 @@
 
 case $1 in
 "get")
-	certbot certonly --webroot -w /var/www/html -d moiden.com -d www.moiden.com -d wen.moiden.com
+	certbot certonly --webroot -w /var/www/html -d moiden.com -d www.moiden.com -d wen.moiden.com -d wbdv.moiden.com
 	;;
 "renew")
 	certbot renew
